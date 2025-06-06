@@ -539,7 +539,7 @@
 
             <div class="about-text">
                 <p> <br>
-                Eden Rose is dedicated to capturing the beaut y, joy, and romance of your special day. With a keen eye for detail and a passion for storytelling, our team of skilled photographers creates breathtaking images that will be cherished for a lifetime.</p>
+                Eden Rose is dedicated to capturing the beauty, joy, and romance of your special day. With a keen eye for detail and a passion for storytelling, our team of skilled photographers creates breathtaking images that will be cherished for a lifetime.</p>
                 <p>From intimate elopements to grand celebrations, we strive to document every precious moment, ensuring that each image reflects the unique love story of the couple. With our professionalism, creativity, and attention to detail, Eden Rose guarantees a seamless and unforgettable experience for your wedding day.</p>
             </div>
         </div>
@@ -656,6 +656,32 @@
             const video = document.querySelector('.video-container video');
             video.play().catch(e => console.log('Video autoplay prevented:', e));
         });
+
+    // Cek waktu login dari localStorage
+    const loginTime = localStorage.getItem('loginTime');
+    if (loginTime) {
+        const now = new Date().getTime();
+        const timePassed = now - parseInt(loginTime, 10);
+
+        // Jika sudah lewat 1 menit, logout
+        if (timePassed > 3600 * 1000) {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('loginTime');
+            window.location.href = "index.html";
+        } else {
+            // Atur timeout untuk logout otomatis saat waktunya habis
+            setTimeout(() => {
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('loginTime');
+                window.location.href = "index.html";
+            }, 3600 * 1000 - timePassed);
+        }
+    } else {
+        // Jika tidak ada session, redirect langsung
+        window.location.href = "index.html";
+    }
     </script>
+
+
 </body>
 </html>

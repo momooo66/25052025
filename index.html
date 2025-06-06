@@ -103,21 +103,22 @@
             <div class="error-message" id="errorMessage"></div>
         </form>
     </div>
-
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('errorMessage');
-            
-            if (password === '25052025') {
-                // Password correct, redirect to main page
-                window.location.href = 'main.html';
-            } else {
-                // Password incorrect, show error
-                errorMessage.textContent = 'Incorrect password. Please try again.';
-            }
-        });
-    </script>
 </body>
+<script>
+    const VALID_PASSWORD = "nata2025"; // Ganti dengan password kamu
+
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const password = document.getElementById("password").value;
+        const errorMessage = document.getElementById("errorMessage");
+
+        if (password === VALID_PASSWORD) {
+            const now = new Date().getTime();
+            localStorage.setItem("loginTime", now);
+            window.location.href = "main.html";
+        } else {
+            errorMessage.textContent = "Incorrect password. Try again.";
+        }
+    });
+</script>
 </html>
