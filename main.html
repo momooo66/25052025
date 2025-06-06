@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nataaa's Birthday</title>
+    <style>
+        /* Font Imports */
+        @font-face {
+            font-family: 'The Seasons Light';
+            src: url('https://fonts.cdnfonts.com/css/the-seasons') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+        }
+        
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --accent-gold: #c0a062;
+        }
+        
+        body {
+            font-family: 'Calibri', 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-gray);
+            line-height: 1.8;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        .elegant-font {
+            font-family: 'The Seasons Light', serif;
+            letter-spacing: 1px;
+        }
+        
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50px;
+            padding: 10px 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .music-control {
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .music-info {
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        
+        /* Navigation - Mobile First */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: black;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+
+        }
+        
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            background-color: black;
+            font-color:white;
+            color: var(--white);
+
+
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--white);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    position: relative;
+    padding-bottom: 3px;
+    white-space: nowrap;
+}
+
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        nav li {
+            margin: 0 0.8rem;
+        }
+        
+        nav a {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 0.9rem;
+            position: relative;
+            padding-bottom: 3px;
+            white-space: nowrap;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('IMG_1748595900825.JPEG') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            margin-top: 80px;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            max-width: 90%;
+            padding: 0 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.2rem;
+            margin: 0 0 1rem;
+            letter-spacing: 3px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+            margin: 0 0 1.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .divider {
+            width: 60px;
+            height: 1px;
+            background-color: var(--white);
+            margin: 1.5rem auto;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .about h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 1px;
+            background-color: var(--black);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .about-text {
+            text-align: center;
+            padding: 0 1rem;
+        }
+        
+        .about-image {
+            width: 100%;
+            height: 300px;
+            max-width: 600px;    /* Optional: limit size on large screens */
+            background: url('https://images.unsplash.com/photo-1605087880595-6ccfffed3b81?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80') no-repeat center center;
+            background-size: cover;
+            order: -1;
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            background-color: var(--light-gray);
+            padding: 3rem 1rem;
+        }
+        
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .portfolio h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            text-align: center;
+        }
+        
+        .contact-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 1.1rem;
+        }
+        
+        .copyright {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        
+        /* Desktop Styles */
+        @media (min-width: 768px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0 2rem;
+                color: var(--white);
+
+            }
+            
+            .logo {
+                margin-bottom: 0;
+                font-size: 1.8rem;
+            }
+            
+            nav ul {
+                flex-wrap: nowrap;
+            }
+            
+            nav li {
+                margin-left: 1.5rem;
+            }
+            
+            nav a {
+                font-size: 1rem;
+            }
+            
+            .hero {
+                height: 100vh;
+                margin-top: 90px;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .divider {
+                width: 80px;
+                height: 2px;
+                margin: 2rem auto;
+            }
+            
+            .about {
+                padding: 5rem 2rem;
+            }
+            
+            .about h2 {
+                font-size: 2.2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .about-content {
+                flex-direction: row;
+                gap: 3rem;
+                margin-top: 3rem;
+            }
+            
+            .about-text {
+                flex: 1;
+                text-align: left;
+                padding: 0 1rem;
+            }
+            
+            .about-image {
+                flex: 1;
+                height: 400px;
+                order: 0;
+            }
+            
+            .portfolio {
+                padding: 5rem 2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+            
+            .contact {
+                padding: 5rem 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: row;
+                gap: 3rem;
+                margin-top: 3rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .hero h1 {
+                font-size: 4.5rem;
+            }
+            
+            .about h2 {
+                font-size: 2.5rem;
+            }
+            
+            .portfolio h2, .contact h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* New This is Us Section */
+        .this-is-us {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: var(--white);
+        }
+        
+        .this-is-us h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-family: 'The Seasons Light', serif;
+            letter-spacing: 1px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            object-fit: cover; /* Ensures video covers entire container */
+        }
+        
+        @media (min-width: 768px) {
+            .this-is-us {
+                padding: 5rem 2rem;
+            }
+            
+            .this-is-us h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .this-is-us h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.cdnfonts.com/css/the-seasons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Calibri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Music Player -->
+    <div class="music-player">
+        <button class="music-control" id="musicToggle">
+            <i class="fas fa-play" id="musicIcon"></i>
+        </button>
+        <div class="music-info">your fav song</div>
+        <audio id="backgroundMusic" loop>
+            <source src="Sunset Rollercoaster - Vanilla.mp3" type="audio/mpeg">
+            <!-- Note: Replace with your actual music file -->
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    
+    <!-- Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo elegant-font">Nata's Birthday</a>
+            <nav>
+                <ul>
+                    <li><a href="#about" class="nav-a">The Wish</a></li>
+                    <li><a href="#portfolio"class="nav-a">Birthday Girl</a></li>
+                    <li><a href="#usss"class="nav-a">This is us</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="elegant-font">Happy Birthday!</h1>
+            <div class="divider"></div>
+            <p class="elegant-font">25'th and still counting forever with me</p>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="elegant-font">The Wish</h2>
+        <div class="about-content">
+            <div class="about-image"><img src="7101a756-630e-4b50-8a64-451b744301ab.JPG" alt="Wedding couple" width="350" height="350"></div>
+
+            <div class="about-text">
+                <p> <br>
+                Eden Rose is dedicated to capturing the beauty, joy, and romance of your special day. With a keen eye for detail and a passion for storytelling, our team of skilled photographers creates breathtaking images that will be cherished for a lifetime.</p>
+                <p>From intimate elopements to grand celebrations, we strive to document every precious moment, ensuring that each image reflects the unique love story of the couple. With our professionalism, creativity, and attention to detail, Eden Rose guarantees a seamless and unforgettable experience for your wedding day.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="portfolio-container">
+            <h2 class="elegant-font">Birthday Girl</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="IMG_1748595836138.JPEG">
+                </div>
+                <div class="gallery-item">
+                    <img src="36f07df1-a4ad-4b3b-8adf-45450181ac82.JPG">
+                </div>
+                 <div class="gallery-item">
+                    <img src="IMG_1748583832110.JPEG">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- New This is Us Section -->
+    <section id="usss" class="this-is-us">
+        <h2 class="elegant-font">This is us</h2>
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="20250504_191653_687.MP4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="portfolio-container">
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="92E26715-4DE6-4538-A917-1CFDBDA434D8.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="40A46956-6414-4EBF-9AF5-871F3A5DB3AB.jpg">
+                </div>
+                 <div class="gallery-item">
+                    <img src="8A9FCF2C-D655-4A7A-9074-7A6C01965AC4.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo elegant-font">The Creator</div>
+        <p>Made with love by Momo</p>
+        <p>♡</p>
+    </footer>
+
+    <script>
+        // Music Player Functionality
+        const musicToggle = document.getElementById('musicToggle');
+        const musicIcon = document.getElementById('musicIcon');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        
+        // Start music automatically (muted at first to comply with autoplay policies)
+        backgroundMusic.volume = 0.5;
+        backgroundMusic.muted = true;
+        
+        // Try to play music immediately
+        const playMusic = () => {
+            backgroundMusic.play()
+                .then(() => {
+                    // Successfully started playback
+                    backgroundMusic.muted = false;
+                    musicIcon.classList.remove('fa-play');
+                    musicIcon.classList.add('fa-pause');
+                })
+                .catch(error => {
+                    console.log('Autoplay prevented:', error);
+                    // Show play button if autoplay failed
+                    musicIcon.classList.remove('fa-pause');
+                    musicIcon.classList.add('fa-play');
+                });
+        };
+        
+        // Attempt to play when page loads
+        playMusic();
+        
+        // Also attempt to play when user first interacts with page
+        document.body.addEventListener('click', function() {
+            if (backgroundMusic.paused) {
+                playMusic();
+            }
+        }, { once: true });
+        
+        // Toggle play/pause when button clicked
+        musicToggle.addEventListener('click', function() {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+                backgroundMusic.muted = false;
+                musicIcon.classList.remove('fa-play');
+                musicIcon.classList.add('fa-pause');
+            } else {
+                backgroundMusic.pause();
+                musicIcon.classList.remove('fa-pause');
+                musicIcon.classList.add('fa-play');
+            }
+        });
+        
+        // Ensure video plays when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.video-container video');
+            video.play().catch(e => console.log('Video autoplay prevented:', e));
+        });
+    </script>
+</body>
+</html>
