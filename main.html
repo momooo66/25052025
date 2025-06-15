@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nataaa's Birthday</title>
+    <title>Nata's Birthday</title>
+    <link rel="icon" type="image/svg+xml" href="birthday-gift-svgrepo-com.svg">
     <style>
         /* Font Imports */
         @font-face {
@@ -36,38 +37,45 @@
             letter-spacing: 1px;
         }
         
-        /* Music Player */
+         /* Updated Music Player */
+        .music-player-container {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: var(--white);
+            margin-top: -20%;
+        }
+        
         .music-player {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
             background: rgba(255,255,255,0.9);
             border-radius: 50px;
-            padding: 10px 15px;
+            padding: 15px 25px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         
         .music-control {
             background: var(--black);
             color: var(--white);
             border: none;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.2rem;
         }
         
         .music-info {
-            font-size: 0.8rem;
+            font-size: 1rem;
             white-space: nowrap;
         }
+
         
         /* Navigation - Mobile First */
         header {
@@ -105,14 +113,40 @@
         }
         
         .nav-a {
-    color: var(--white);
-    text-decoration: none;
-    font-size: 0.9rem;
-    position: relative;
-    padding-bottom: 3px;
-    white-space: nowrap;
-}
+        color: var(--white);
+        text-decoration: none;
+        font-size: 0.9rem;
+        position: relative;
+        padding-bottom: 3px;
+        white-space: nowrap;
+        }
 
+        /* New This is Us Section */
+        .this-is-us {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: var(--white);
+            margin-top: -20%;
+        }
+        
+        .this-is-us h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-family: 'The Seasons Light', serif;
+            letter-spacing: 1px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
 
         nav ul {
             display: flex;
@@ -138,7 +172,7 @@
         
         /* Hero Section */
         .hero {
-            height: 70vh;
+            height: 95vh;
             min-height: 400px;
             display: flex;
             align-items: center;
@@ -221,7 +255,7 @@
         }
         
         .about-text {
-            text-align: center;
+            text-align: justify;
             padding: 0 1rem;
         }
         
@@ -229,15 +263,16 @@
             width: 100%;
             height: 300px;
             max-width: 600px;    /* Optional: limit size on large screens */
-            background: url('https://images.unsplash.com/photo-1605087880595-6ccfffed3b81?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80') no-repeat center center;
             background-size: cover;
             order: -1;
+            border-radius: 10%;
         }
         
         /* Portfolio Section */
         .portfolio {
-            background-color: var(--light-gray);
+            background-color: var(--white);
             padding: 3rem 1rem;
+            margin-top: -17%;
         }
         
         .portfolio-container {
@@ -261,6 +296,7 @@
             height: 300px;
             overflow: hidden;
             position: relative;
+            border-radius: 5px;
         }
         
         .gallery-item img {
@@ -393,7 +429,7 @@
             
             .about-text {
                 flex: 1;
-                text-align: left;
+                text-align: justify;
                 padding: 0 1rem;
             }
             
@@ -401,10 +437,13 @@
                 flex: 1;
                 height: 400px;
                 order: 0;
+                            border-radius: 10%;
+
             }
             
             .portfolio {
                 padding: 5rem 2rem;
+                margin-top: -10%;
             }
             
             .gallery {
@@ -421,6 +460,15 @@
                 gap: 3rem;
                 margin-top: 3rem;
             }
+            .this-is-us {
+            margin-top: 0%;
+            }
+            .music-player-container {
+            margin-top: 0%;
+            }
+                    .portfolio {
+            margin-top: 0%;
+        }
         }
         
         @media (min-width: 992px) {
@@ -437,31 +485,7 @@
             }
         }
 
-        /* New This is Us Section */
-        .this-is-us {
-            padding: 3rem 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            background-color: var(--white);
-        }
-        
-        .this-is-us h2 {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            font-family: 'The Seasons Light', serif;
-            letter-spacing: 1px;
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            max-width: 800px;
-            margin: 0 auto;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
+
         
         .video-container video {
             position: absolute;
@@ -470,22 +494,38 @@
             width: 100%;
             height: 100%;
             border: none;
+            border-radius: 5px;
             object-fit: cover; /* Ensures video covers entire container */
         }
         
         @media (min-width: 768px) {
             .this-is-us {
                 padding: 5rem 2rem;
+                margin-top: -20%%;
+
             }
             
             .this-is-us h2 {
                 font-size: 2.2rem;
+            }
+            .portfolio {
+                margin-top: -7%;
+            }
+            .music-player-container {
+            margin-top: -8%; 
+            }
+            .this-is-us {
+                margin-top: -10%;
             }
         }
         
         @media (min-width: 992px) {
             .this-is-us h2 {
                 font-size: 2.5rem;
+            }
+            .this-is-us {
+                margin-top: -20%%;
+
             }
         }
     </style>
@@ -495,27 +535,29 @@
 </head>
 <body>
     <!-- Music Player -->
-    <div class="music-player">
-        <button class="music-control" id="musicToggle">
-            <i class="fas fa-play" id="musicIcon"></i>
-        </button>
-        <div class="music-info">your fav song</div>
-        <audio id="backgroundMusic" loop>
-            <source src="Sunset Rollercoaster - Vanilla.mp3" type="audio/mpeg">
+    <!-- <div class="music-player"> -->
+        <!-- <button class="music-control" id="musicToggle"> -->
+            <!-- <i class="fas fa-play" id="musicIcon"></i> -->
+        <!-- </button> -->
+        <!-- <div class="music-info">your fav song</div> -->
+        <!-- <audio id="backgroundMusic" loop> -->
+            <!-- <source src="Sunset Rollercoaster - Vanilla.mp3" type="audio/mpeg"> -->
             <!-- Note: Replace with your actual music file -->
-            Your browser does not support the audio element.
-        </audio>
-    </div>
+            <!-- Your browser does not support the audio element. -->
+        <!-- </audio>
+    </div> -->
     
     <!-- Navigation -->
     <header>
         <div class="nav-container">
-            <a href="#" class="logo elegant-font">Nata's Birthday</a>
+            <a href="#" class="logo elegant-font">Nata's Birthday <img src="birthday-gift-svgrepo-com.png" width="22px" height="22px">
+            </a> 
+            
             <nav>
                 <ul>
-                    <li><a href="#about" class="nav-a">The Wish</a></li>
-                    <li><a href="#portfolio"class="nav-a">Birthday Girl</a></li>
-                    <li><a href="#usss"class="nav-a">This is us</a></li>
+                    <li><a href="#about" class="nav-a elegant-font">My Wish</a></li>
+                    <li><a href="#portfolio"class="nav-a elegant-font">Birthday Girl</a></li>
+                    <li><a href="#usss"class="nav-a elegant-font">This is Us</a></li>
 
                 </ul>
             </nav>
@@ -527,15 +569,15 @@
         <div class="hero-content">
             <h1 class="elegant-font">Happy Birthday!</h1>
             <div class="divider"></div>
-            <p class="elegant-font">25'th and still counting forever with me</p>
+            <p class="elegant-font">25th and still counting, forever with me.</p>
         </div>
     </section>
     
     <!-- About Section -->
     <section id="about" class="about">
-        <h2 class="elegant-font">The Wish</h2>
+        <h2 class="elegant-font">My Wish</h2>
         <div class="about-content">
-            <div class="about-image"><img src="main.jpg" width="350" height="350"></div>
+            <div class="about-image"><img src="main.jpg" width="350" height="350" style="border-radius: 5px;"></div>
 
             <div class="about-text">
                 <p> <br>
@@ -545,6 +587,19 @@
         </div>
     </section>
     
+        <section class="music-player-container">
+        <div class="music-player">
+            <button class="music-control" id="musicToggle">
+                <i class="fas fa-play" id="musicIcon"></i>
+            </button>
+            <div class="music-info">Play Our Song: Vanilla - Sunset Rollercoaster</div>
+            <audio id="backgroundMusic" loop>
+                <source src="Sunset Rollercoaster - Vanilla.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </section>
+
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
         <div class="portfolio-container">
@@ -558,6 +613,15 @@
                 </div>
                  <div class="gallery-item">
                     <img src="IMG_1748583832110.JPEG">
+                </div> 
+                 <div class="gallery-item">
+                    <img src="3e0377e1-27a8-4933-996b-a458bd0019c5.jpg">
+                </div>
+                 <div class="gallery-item">
+                    <img src="15803cb3-a54a-4a46-a826-b1abc551a9f4.jpg">
+                </div>
+                 <div class="gallery-item"> 
+                    <img src="8b8ac7b3-5dbd-4fee-bff0-75c1242232f7.jpg">
                 </div>
             </div>
         </div>
@@ -566,7 +630,7 @@
 
     <!-- New This is Us Section -->
     <section id="usss" class="this-is-us">
-        <h2 class="elegant-font">This is us</h2>
+        <h2 class="elegant-font">This is Us</h2>
         <div class="video-container">
             <video autoplay muted loop playsinline>
                 <source src="20250504_191653_687.MP4" type="video/mp4">
@@ -595,61 +659,40 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-logo elegant-font">The Creator</div>
-        <p>Made with love by Momo</p>
-        <p>♡</p>
+        <div class="footer-logo elegant-font">Made With ♡</div>
+        <p>by Momo 🧑🏻‍🦱</p>
     </footer>
 
     <script>
-        // Music Player Functionality
+
+// Updated Music Player Functionality
         const musicToggle = document.getElementById('musicToggle');
         const musicIcon = document.getElementById('musicIcon');
         const backgroundMusic = document.getElementById('backgroundMusic');
         
-        // Start music automatically (muted at first to comply with autoplay policies)
+        // Initialize music as paused
         backgroundMusic.volume = 0.5;
-        backgroundMusic.muted = true;
-        
-        // Try to play music immediately
-        const playMusic = () => {
-            backgroundMusic.play()
-                .then(() => {
-                    // Successfully started playback
-                    backgroundMusic.muted = false;
-                    musicIcon.classList.remove('fa-play');
-                    musicIcon.classList.add('fa-pause');
-                })
-                .catch(error => {
-                    console.log('Autoplay prevented:', error);
-                    // Show play button if autoplay failed
-                    musicIcon.classList.remove('fa-pause');
-                    musicIcon.classList.add('fa-play');
-                });
-        };
-        
-        // Attempt to play when page loads
-        playMusic();
-        
-        // Also attempt to play when user first interacts with page
-        document.body.addEventListener('click', function() {
-            if (backgroundMusic.paused) {
-                playMusic();
-            }
-        }, { once: true });
+        backgroundMusic.pause();
         
         // Toggle play/pause when button clicked
         musicToggle.addEventListener('click', function() {
             if (backgroundMusic.paused) {
-                backgroundMusic.play();
-                backgroundMusic.muted = false;
-                musicIcon.classList.remove('fa-play');
-                musicIcon.classList.add('fa-pause');
+                backgroundMusic.play()
+                    .then(() => {
+                        musicIcon.classList.remove('fa-play');
+                        musicIcon.classList.add('fa-pause');
+                    })
+                    .catch(error => {
+                        console.log('Playback prevented:', error);
+                    });
             } else {
                 backgroundMusic.pause();
                 musicIcon.classList.remove('fa-pause');
                 musicIcon.classList.add('fa-play');
             }
         });
+
+
         
         // Ensure video plays when page loads
         document.addEventListener('DOMContentLoaded', function() {
@@ -664,7 +707,7 @@
         const timePassed = now - parseInt(loginTime, 10);
 
         // Jika sudah lewat 1 menit, logout
-        if (timePassed > 3600 * 1000) {
+        if (timePassed > 1000000 * 1000) {
             localStorage.removeItem('isLoggedIn');
             localStorage.removeItem('loginTime');
             window.location.href = "index.html";
@@ -674,7 +717,7 @@
                 localStorage.removeItem('isLoggedIn');
                 localStorage.removeItem('loginTime');
                 window.location.href = "index.html";
-            }, 3600 * 1000 - timePassed);
+            }, 1000000 * 1000 - timePassed);
         }
     } else {
         // Jika tidak ada session, redirect langsung
